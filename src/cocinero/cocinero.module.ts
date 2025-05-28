@@ -5,5 +5,6 @@ import { CocineroController } from './cocinero.controller';
 @Module({
   controllers: [CocineroController],
   providers: [CocineroService],
+  exports: [CocineroService],
 })
 export class CocineroModule {}
