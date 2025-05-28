@@ -22,14 +22,4 @@ export class CreateOrdenDto {
   @IsArray()
   @IsString({ each: true })
   platos: string[];
-
-  @IsInt()
-  @IsPositive()
-  @IsNotEmpty()
-  concinero_id: number;
-
-  @IsInt()
-  @IsPositive()
-  @IsNotEmpty()
-  cliente_id: number;
 }

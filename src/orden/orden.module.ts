@@ -5,7 +5,6 @@ import { CocineroModule } from 'src/cocinero/cocinero.module';
 import { ClienteModule } from 'src/cliente/cliente.module';
 
 @Module({
-  imports: [CocineroModule, ClienteModule],
   controllers: [OrdenController],
   providers: [OrdenService],
 })

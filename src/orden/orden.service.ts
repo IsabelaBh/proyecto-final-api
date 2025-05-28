@@ -10,22 +10,12 @@ export class OrdenService {
   private ordenes: Orden[] = [];
   private idCounter = 1;
 
-  constructor(
-    private readonly cocineroSer: CocineroService,
-    private readonly clienteSer: ClienteService,
-  ) {}
-
   create(dto: CreateOrdenDto) {
-    this.clienteSer.findOne(dto.cliente_id);
-    this.cocineroSer.findOne(dto.concinero_id);
-
     const orden = new Orden(
       this.idCounter++,
       dto.detalles,
       dto.total,
       dto.platos,
-      dto.concinero_id,
-      dto.cliente_id,
     );
 
     this.ordenes.push(orden);
@@ -62,14 +52,9 @@ export class OrdenService {
   update(id: number, dto: UpdateOrdenDto) {
     const { orden } = this.findOne(id);
 
-    this.clienteSer.findOne(dto.cliente_id);
-    this.cocineroSer.findOne(dto.concinero_id);
-
     orden.detalles = dto.detalles;
     orden.total = dto.total;
     orden.platos = dto.platos;
-    orden.concinero_id = dto.concinero_id;
-    orden.cliente_id = dto.cliente_id;
 
     return {
       ok: true,
